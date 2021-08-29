@@ -1,3 +1,7 @@
 body{
     background-color: rgba(137, 219, 112, 0.692);
 }
+
+h1{
+    padding-bottom: 20px;
+}
