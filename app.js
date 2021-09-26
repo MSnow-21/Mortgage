@@ -38,7 +38,22 @@ function calculateMortgage(event) {
     const calculationThree = Math.pow(calculationTwo, monthCalculation);
     console.log(calculationThree);
 
+    // Calculating denominator calc
+    const calculationFour = calculationThree - 1
+    console.log(calculationFour);
+
     //
+
+    const calculationFive = calculationOne * calculationThree;
+    console.log(calculationFive);
+
+    //
+
+    const calculationSix = calculationFive / calculationFour;
+
+    console.log(calculationSix);
+
+    monthlyRate.value = calculationSix;
 
     event.preventDefault();
 
