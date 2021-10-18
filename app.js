@@ -53,7 +53,7 @@ function calculateMortgage(event) {
 
     console.log(calculationSix);
 
-    monthlyRate.value = calculationSix;
+    monthlyRate.value = calculationSix.toFixed(2);
 
     event.preventDefault();
 
