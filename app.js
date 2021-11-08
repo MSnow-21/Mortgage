@@ -53,6 +53,12 @@ function calculateMortgage(event) {
 
     console.log(calculationSix);
 
+    if(isFinite(calculationSix)){
+        monthlyRate.value = calculationSix.toFixed(2);
+    } else {
+       console.log("numbers are not valid")
+    }
+
     monthlyRate.value = calculationSix.toFixed(2);
 
     event.preventDefault();
