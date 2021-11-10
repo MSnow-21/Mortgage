@@ -21,45 +21,44 @@ function calculateMortgage(event) {
     const interestCalculation = parseFloat(interestRate.value / 100);
     const monthCalculation = parseFloat(yearsMortgage.value * 12);
 
-    // Calculating interest Rate;
+    // Calculating interest Rate - interest / 12;
 
     const interestRateCalc = interestCalculation/12
 
-    // Calculating mortgage principal times interest rate;
+    // Calculating mortgage principal times interest rate - Numerator;
 
-    const calculationOne = principalMortgage * interestRateCalc;
-    console.log(calculationOne);
+    const calculationPR = principalMortgage * interestRateCalc;
+    console.log(calculationPR);
 
-    // Calculating rate plus 1 in numerator 
-    const calculationTwo = 1 + (interestCalculation/12);
-    console.log(calculationTwo);
+    // Calculating rate plus 1 in Numerator 
+    const calculationOnePlusRate = 1 + (interestCalculation/12);
+    console.log(calculationOnePlusRate);
 
-    // Calculating rate the power in the Exponent - Numerator - Denomitor uses same
-    const calculationThree = Math.pow(calculationTwo, monthCalculation);
-    console.log(calculationThree);
+    // Calculating rate the power in the Exponent - Numerator
+    const calculationMonthsPower = Math.pow(calculationOnePlusRate, monthCalculation);
+    console.log(calculationMonthsPower);
 
-    // Calculating denominator calc
-    const calculationFour = calculationThree - 1
-    console.log(calculationFour);
+    // Calculating Denominator
+    const calculationDenomPow = calculationMonthsPower - 1
+    console.log(calculationDenomPow);
 
-    //
+    // Numerator Calculation
 
-    const calculationFive = calculationOne * calculationThree;
-    console.log(calculationFive);
+    const calculationNumerFinal = calculationPR * calculationMonthsPower;
+    console.log(calculationNumerFinal);
 
-    //
+    // Final Calculation for Mortgage Payment
 
-    const calculationSix = calculationFive / calculationFour;
+    const calculationFinal = calculationNumerFinal / calculationDenomPow;
 
-    console.log(calculationSix);
+    console.log(calculationFinal);
 
-    if(isFinite(calculationSix)){
-        monthlyRate.value = calculationSix.toFixed(2);
+    if(isFinite(calculationFinal)){
+        monthlyRate.value = calculationFinal.toFixed(2);
     } else {
+        
        console.log("numbers are not valid")
     }
-
-    monthlyRate.value = calculationSix.toFixed(2);
 
     event.preventDefault();
 
