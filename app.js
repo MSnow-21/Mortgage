@@ -56,11 +56,33 @@ function calculateMortgage(event) {
     if(isFinite(calculationFinal)){
         monthlyRate.value = calculationFinal.toFixed(2);
     } else {
-        
-       console.log("numbers are not valid")
+        checkNumbers("Numbers are not valid - please reenter")
+        console.log("numbers are not valid")
     }
 
     event.preventDefault();
+
+}
+
+function checkNumbers(message){
+    // Creating a new Div for number errors
+    const checkNumbersDiv = document.createElement('div');
+
+    const mainCard = document.querySelector(".card");
+
+    const mainTitle = document.querySelector(".title");
+
+
+
+    // Adding a class for number errors and text details
+
+    checkNumbersDiv.className = "alert alert-warning";
+
+    textDetails = document.createTextNode(message);
+
+    checkNumbersDiv.appendChild(textDetails);
+
+    mainCard.insertBefore(checkNumbersDiv, mainTitle);
 
 }
 
