@@ -8,7 +8,7 @@ function calculateMortgage(event) {
 
     const mortgageAmount = document.getElementById('mortgage_amount');
     const interestRate = document.getElementById('interest_rate');
-    const yearsMortgage = document.getElementById('years');
+    const yearsMortgage = document.getElementById('year');
 
     // Output values
 
@@ -56,8 +56,7 @@ function calculateMortgage(event) {
     if(isFinite(calculationFinal)){
         monthlyRate.value = calculationFinal.toFixed(2);
     } else {
-        checkNumbers("Numbers are not valid - please reenter")
-        console.log("numbers are not valid")
+        checkNumbers("Numbers are not valid - please review inputs");
     }
 
     event.preventDefault();
@@ -84,5 +83,11 @@ function checkNumbers(message){
 
     mainCard.insertBefore(checkNumbersDiv, mainTitle);
 
+    setTimeout(removeErrorDiv, 5000)
+
+}
+
+function removeErrorDiv(){
+    document.querySelector('.alert').remove();
 }
 
