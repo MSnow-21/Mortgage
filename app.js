@@ -12,7 +12,7 @@ function calculateMortgage(event) {
 
     // Output values
 
-    const totalMortgageCost = document.getElementById('totalmortgage_cost');
+    const totalMortgageCost = document.getElementById('total_cost');
     const monthlyRate = document.getElementById('monthly_rate');
 
     // Integers to strings.
@@ -51,10 +51,12 @@ function calculateMortgage(event) {
 
     const calculationFinal = calculationNumerFinal / calculationDenomPow;
 
-    console.log(calculationFinal);
+    const calculateTotalMortgage = calculationFinal * monthCalculation;
+    console.log(calculateTotalMortgage);
 
     if(isFinite(calculationFinal)){
         monthlyRate.value = calculationFinal.toFixed(2);
+        totalMortgageCost.value = calculateTotalMortgage.toFixed(2);
     } else {
         checkNumbers("Numbers are not valid - please review inputs");
     }
